@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="image_width">250dp</dimen>
+    <dimen name="margin">10dp</dimen>
+    <dimen name="margin_top_bottom">2dp</dimen>
+    <dimen name="tex_padding">10dp</dimen>
+    <dimen name="linear_padding">7dp</dimen>
+    <dimen name="tex_size">17dp</dimen>
+</resources>

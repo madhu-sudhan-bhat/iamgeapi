@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">apiFetch</string>
+    <string name="opening_text">Welcome</string>
+</resources>
