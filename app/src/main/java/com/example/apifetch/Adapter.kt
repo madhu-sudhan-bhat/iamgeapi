@@ -14,8 +14,10 @@ import android.R.attr.data
 import androidx.appcompat.app.AppCompatActivity
 import com.example.apifetch.fragment.FragmentTest
 
-
-public class Adapter(private val list: ArrayList<DataFileItem>) :
+interface Communicator {
+    fun passData(image: String)
+}
+public class Adapter(private val list: ArrayList<DataFileItem>, private val listener: Communicator) :
     RecyclerView.Adapter<Adapter.ViewHolder>() {
     private var mList: ArrayList<DataFileItem>? = null
 
@@ -43,16 +45,17 @@ public class Adapter(private val list: ArrayList<DataFileItem>) :
         holder.Name.text = list[position].author;
         Picasso.get().load(list[position].download_url).resize(700, 700).centerCrop().into(holder.image);
 
-//        holder.itemView.setOnClickListener(object : View.OnClickListener){
-//              fun  onclick(v:View?){
-//               val activity =
-//              }
-//        }
+
+
         holder.image.setOnClickListener { i ->
             when (i.id) {
                 R.id.imageMain -> {
-//                    Toast.makeText(image.context, list[position].download_url, Toast.LENGTH_SHORT).show()
-                 val imagearams=list[position].download_url;
+//                    Toast.makeText(i.context, list[position].download_url, Toast.LENGTH_SHORT).show()
+                    val pos = list[position];
+                    val imagearams=list[position].download_url;
+
+                    listener.passData(imagearams);
+
                     val activity= i!!.context as AppCompatActivity;
                     val fragmentest= FragmentTest();
                     activity.supportFragmentManager.beginTransaction().replace(R.id.mainrl,fragmentest).addToBackStack(null).commit();
