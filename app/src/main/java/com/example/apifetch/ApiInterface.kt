@@ -7,5 +7,5 @@ import io.reactivex.Observable
 interface ApiInterface {
     @GET("list")
 //    fun getData():Call<ArrayList<DataFileItem>>
-    fun getData(@Query(value: "q")query:String):Observable<ArrayList<DataFileItem>>
+    fun getData():Observable<ArrayList<DataFileItem>>
 }
