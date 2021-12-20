@@ -11,14 +11,15 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import android.R.attr.data
+import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.apifetch.fragment.FragmentTest
 
 interface Communicator {
-    fun passData(image: String)
+    fun passData(pos: DataFileItem ,image: String)
 }
 public class Adapter(private val list: ArrayList<DataFileItem>, private val listener: Communicator) :
-    RecyclerView.Adapter<Adapter.ViewHolder>() {
+    RecyclerView.Adapter<Adapter.ViewHolder>(), Communicator2 {
     private var mList: ArrayList<DataFileItem>? = null
 
     init {
@@ -51,22 +52,24 @@ public class Adapter(private val list: ArrayList<DataFileItem>, private val list
             when (i.id) {
                 R.id.imageMain -> {
 //                    Toast.makeText(i.context, list[position].download_url, Toast.LENGTH_SHORT).show()
-                    val pos = list[position];
-                    val imagearams=list[position].download_url;
+                    Toast.makeText(i.context, i.id.toString(), Toast.LENGTH_SHORT).show()
+                    var  cklpos = list[position];
+                    var clkimagearams=list[position].download_url;
+                    val listner2 : Communicator2 =(data,0);
+                    listener.passData(cklpos,clkimagearams);
+                    listner2.passData1(cklpos,clkimagearams)
 
-                    listener.passData(imagearams);
-
-                    val activity= i!!.context as AppCompatActivity;
-                    val fragmentest= FragmentTest();
-                    activity.supportFragmentManager.beginTransaction().replace(R.id.mainrl,fragmentest).addToBackStack(null).commit();
+//                    val fragmentest= FragmentTest();
+//                    activity.supportFragmentManager.beginTransaction().replace(R.id.mainrl,fragmentest).addToBackStack(null).commit();
 
                 }
             }
 
+    }
 
     }
 
-
+    override fun passData1(pos: DataFileItem, image: String) {
 
     }
 
