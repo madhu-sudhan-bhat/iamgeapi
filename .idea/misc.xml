@@ -8,7 +8,9 @@
         <entry key="app/src/main/res/layout/activity_content_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="app/src/main/res/layout/card.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_test.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_change_image.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_display_image.xml" value="0.1375" />
+        <entry key="app/src/main/res/layout/fragment_test.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragmentest.xml" value="0.22" />
       </map>
     </option>
