@@ -11,20 +11,23 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import android.R.attr.data
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.apifetch.fragment.FragmentTest
+import com.example.apifetch.fragment.ImageActivity
 
 interface Communicator {
     fun passData(pos: DataFileItem ,image: String)
 }
-public class Adapter(private val list: ArrayList<DataFileItem>, private val listener: Communicator) :
+public class Adapter(private val list: ArrayList<DataFileItem>) :
     RecyclerView.Adapter<Adapter.ViewHolder>(), Communicator2 {
     private var mList: ArrayList<DataFileItem>? = null
 
     init {
         mList = list
     }
+
 
     public class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val Name: TextView = itemView.findViewById(R.id.Name)
@@ -52,15 +55,16 @@ public class Adapter(private val list: ArrayList<DataFileItem>, private val list
             when (i.id) {
                 R.id.imageMain -> {
 //                    Toast.makeText(i.context, list[position].download_url, Toast.LENGTH_SHORT).show()
-                    Toast.makeText(i.context, i.id.toString(), Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(i.context, i.id.toString(), Toast.LENGTH_SHORT).show()
                     var  cklpos = list[position];
                     var clkimagearams=list[position].download_url;
-                    val listner2 : Communicator2 =(data,0);
-                    listener.passData(cklpos,clkimagearams);
-                    listner2.passData1(cklpos,clkimagearams)
 
-//                    val fragmentest= FragmentTest();
-//                    activity.supportFragmentManager.beginTransaction().replace(R.id.mainrl,fragmentest).addToBackStack(null).commit();
+
+                    var intent : Intent =Intent(i.context,ImageActivity::class.java )
+                    intent.putExtra("url", clkimagearams)
+                    i.context.startActivity(intent)
+
+
 
                 }
             }

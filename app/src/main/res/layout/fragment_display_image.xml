@@ -1,39 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Fdimgview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.FragmentDisplayImage">
 
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cdv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/margin"
-            android:layout_marginTop="@dimen/margin_top_bottom"
-            android:layout_marginRight="@dimen/margin"
-            android:layout_marginBottom="@dimen/margin_top_bottom"
-            android:elevation="@dimen/margin">
-
-            <LinearLayout
-                android:id="@+id/ll"
-                android:layout_width="match_parent"
-                android:layout_height="320dp"
-                android:background="@color/black"
-                android:orientation="vertical"
-                android:padding="@dimen/linear_padding">
-
-                <ImageView
-                    android:id="@+id/imageMain"
-                    android:layout_width="match_parent"
-                    android:layout_height="449dp" />
-
-
-            </LinearLayout>
-
-
-        </androidx.cardview.widget.CardView>
-
+    <ImageView
+        android:id="@+id/Fragimage"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:contentDescription="@string/display_image" />
 
 </LinearLayout>
