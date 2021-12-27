@@ -14,7 +14,8 @@ import com.squareup.picasso.Picasso
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "url"
-
+private var Arg2 = ""
+var mView: View? = null
 
 
 class FragmentDisplayImage : Fragment() {
@@ -27,19 +28,36 @@ class FragmentDisplayImage : Fragment() {
 
 
             param1 = it.getString("url")
-            var image= view?.findViewById<ImageView>(R.id.Fragimage)
-            Picasso.get().load(param1).resize(700, 700).centerCrop().into(image);
+            Arg2 = param1.toString()
+
+
 //            Toast.makeText(context, param1.toString() , Toast.LENGTH_SHORT).show()
         }
 
     }
 
+//    override fun onCreateView(
+//        inflater: LayoutInflater, container: ViewGroup?,
+//        savedInstanceState: Bundle?
+//    ): View? {
+//        super.onCreateView(inflater, container, savedInstanceState);
+//        var a =this.getView()
+//        var image= view?.findViewById<ImageView>(R.id.Fragimage)
+//        Picasso.get().load(Arg2).resize(700, 700).centerCrop().into(image);
+//        return inflater.inflate(R.layout.fragment_display_image, container, false)
+//
+//    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         return inflater.inflate(R.layout.fragment_display_image, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        var image= view.findViewById<ImageView>(R.id.Fragimage)
+        Picasso.get().load(Arg2).resize(700, 700).centerCrop().into(image);
     }
 
     companion object {
